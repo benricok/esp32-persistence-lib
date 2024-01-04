@@ -16,10 +16,7 @@ bool Persistence<T>::loadData()
     byte buffer[len];
     this->getBytes(namespace_, buffer, len);
     if (len % sizeof(T))
-    {
-        LOG_ERROR("Persistant data for namespace %s is incorrectly sized\n", PERSISTENCE_NAMESPACE);
         return false;
-    }
     memcpy(&data, buffer, sizeof(T));
     return true;
 }
@@ -33,10 +30,7 @@ bool Persistence<T>::storeData()
     if (this->putBytes(namespace_, &data, sizeof(T)) > 0)
         return true;
     else
-    {
-        LOG_ERROR("Persistant data for namespace %s could not be stored\n", PERSISTENCE_NAMESPACE);
         return false;
-    }
 }
 
 /**
