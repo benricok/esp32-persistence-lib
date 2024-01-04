@@ -1,11 +1,13 @@
 #pragma once
 
 #include <Preferences.h>
-#include "../lib/debug.h"
+#include "debug.h"
 
-// -----------------------------------------------------------------------------
-// Persistence
-// -----------------------------------------------------------------------------
+/**
+ * @brief Persistence class
+ *
+ * @note Specify the type of data to be stored as a template parameter
+*/
 template <typename T>
 class Persistence : private Preferences
 {
